@@ -4,7 +4,7 @@ const express = require("express");
 const api = require("./api");
 
 const app = express();
-app.use("/static", express.static(path.join(__dirname, "assets")));
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -12,7 +12,7 @@ if (port == null || port == "") {
 }
 
 app.get("/", (req, res) => {
-  res.json({ success: true });
+  res.sendFile("index.html", { root: path.join(__dirname, "public") });
 });
 
 app.use("/api", api);
