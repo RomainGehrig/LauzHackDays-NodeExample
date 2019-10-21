@@ -34,11 +34,11 @@ function createComment(user, text) {
   };
 }
 
-api.get("/", (req, res) => {
+api.get("/comments", (req, res) => {
   res.json(getComments());
 });
 
-api.post("/", (req, res) => {
+api.post("/comments", (req, res) => {
   // TODO Fill the comment from data coming from the request body.
   // Look at what is parsed in the request body by uncommenting the next line:
   // console.log(req.body);
