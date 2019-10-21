@@ -28,19 +28,20 @@
           url("static/images/background.jpg") no-repeat center center;
       }
     </style>
+    <script src="static/js/app.js"></script>
   </head>
   <body>
     <div style="margin: 50px;">
       <div class="jumbotron p-5" style="p">
-        <div class="epfl-bg rounded p-1">
+        <div class="epfl-bg rounded p-1 text-center">
           <img
             src="static/images/logo.svg"
             style="width: 50%"
             class="p-2 m-2"
           />
           <div class="clearfix text-white p-2">
-            <h2 class="text-center">
-              Discussion group about the important things
+            <h2>
+              Group discussion about the important things&trade;
             </h2>
             <p class="float-right">
               (... Where is the food?)
@@ -48,20 +49,7 @@
           </div>
         </div>
         <div class="mt-3">
-          <div id="comments">
-            <div class="clearfix shadow bg-light mb-2 p-2 rounded">
-              <p class="float-left m-0">Hello, I'm a comment</p>
-              <span class="float-right">Anonymous - 12:38</span>
-            </div>
-            <div class="clearfix shadow bg-light mb-2 p-2 rounded">
-              <p class="float-left m-0">
-                Hello, I'm a long comment that will make my screen a little to
-                narrow to show it in one line so bootstrap will need to take
-                over and format it with good measures
-              </p>
-              <span class="float-right">Anonymous - 12:38</span>
-            </div>
-          </div>
+          <div id="comments"></div>
         </div>
       </div>
     </div>
