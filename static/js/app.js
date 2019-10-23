@@ -59,7 +59,7 @@ async function getComments() {
       commentsDiv.removeChild(commentsDiv.firstChild);
     }
 
-    for (const comment of comments) {
+    for (const comment of comments.reverse()) {
       const commentElem = createElementForComment(comment);
       commentsDiv.appendChild(commentElem);
     }
