@@ -1,7 +1,7 @@
 {
-  "name": "lauzhackdays-nodeexample",
+  "name": "where_is_the_food",
   "version": "1.0.0",
-  "description": "A simple Express website",
+  "description": "A simple NodeJS website for LauzHackDays",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RomainGehrig/LauzHackDays-NodeExample.git"
+    "url": "git+https://github.com/RomainGehrig/WhereIsTheFood.git"
   },
   "author": "Romain Gehrig",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/RomainGehrig/LauzHackDays-NodeExample/issues"
+    "url": "https://github.com/RomainGehrig/WhereIsTheFood/issues"
   },
-  "homepage": "https://github.com/RomainGehrig/LauzHackDays-NodeExample#readme",
+  "homepage": "https://github.com/RomainGehrig/WhereIsTheFood#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
