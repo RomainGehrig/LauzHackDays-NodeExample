@@ -24,6 +24,7 @@ You can now run the server with the command `npm start`. To stop the server, pre
 ## Backend setup:
 - [ ] Add a favicon
 - [ ] Install [`nodemon`](https://github.com/remy/nodemon#nodemon) as a development dependency and use it to run your server. It should reload the server when it sees a changes in one of the Javascript (backend) files.
+- [ ] Install `pm2` globally on your server (with `sudo npm -g install pm2`) to start processes in the background, meaning you can close the SSH connection and the website will still work!
 
 # More involved exercises
 To implement one of theses exercises may take you less than an hour if you are familiar with it and more if you aren't. They are good exercises for hackathon projects!
