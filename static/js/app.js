@@ -30,23 +30,34 @@ function timestampToString(ts) {
   });
 }
 
+async function postComment() {
+  const commentNameElem = document.getElementById("comment-name");
+  const commentTextElem = document.getElementById("comment-text");
+  const commentName = commentNameElem.value;
+  const commentText = commentTextElem.value;
+
+  const resp = await jsonPost("/api/comments", {
+    name: commentName,
+    text: commentText
+  });
+
+  if (resp.success) {
+    commentNameElem.value = "";
+    commentTextElem.value = "";
+  }
+
+  getComments();
+}
+
 async function getComments() {
   return jsonGet("/api/comments").then(comments => {
     const commentsDiv = document.getElementById("comments");
 
-    // TODO Do something useful with the comments !
-    console.log(comments);
-
-    /**
-       <div class="clearfix shadow bg-light mb-2 p-2 rounded">
-         <p class="float-left m-0">
-           Hello, I'm a comment
-         </p>
-         <span class="float-right font-weight-bold">
-           Anonymous - 12:38
-         </span>
-       </div>
-    */
+    // Remove old previous comments
+    // TODO This part can be improved by not deleting every child every time
+    while (commentsDiv.firstChild) {
+      commentsDiv.removeChild(commentsDiv.firstChild);
+    }
 
     for (const comment of comments) {
       const commentElem = createElementForComment(comment);
@@ -56,6 +67,17 @@ async function getComments() {
 }
 
 // Helper functions for GET and POST
+async function jsonGet(endpoint) {
+  return jsonQuery("GET", endpoint, null);
+}
+
+async function jsonPost(endpoint, data) {
+  if (typeof data !== "string") {
+    data = JSON.stringify(data);
+  }
+  return jsonQuery("POST", endpoint, data);
+}
+
 async function jsonQuery(method, endpoint, body) {
   return fetch(endpoint, {
     method: method,
@@ -67,12 +89,4 @@ async function jsonQuery(method, endpoint, body) {
       "Content-Type": "application/json"
     }
   }).then(resp => resp.json());
-}
-
-async function jsonGet(endpoint) {
-  return jsonQuery("GET", endpoint, null);
-}
-
-async function jsonPost(endpoint, jsonData) {
-  return jsonQuery("POST", endpoint, jsonData);
 }
