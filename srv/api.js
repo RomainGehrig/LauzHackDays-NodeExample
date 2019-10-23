@@ -39,11 +39,19 @@ api.get("/comments", (req, res) => {
 });
 
 api.post("/comments", (req, res) => {
-  // TODO Fill the comment from data coming from the request body.
-  // Look at what is parsed in the request body by uncommenting the next line:
-  // console.log(req.body);
-  const comment = createComment("Anon", "Hello");
-  console.log("Got a new comment: ", comment);
+  // TODO Create a comment object with the query data
+  // Look at you get in the request body by uncommenting the next line:
+  // console.log("Request body:", req.body);
+
+  const cmComments = [
+    "Me want cookie!",
+    "Me eat cookie!",
+    "COOKIE!",
+    "Om nom nom nom"
+  ];
+  const randIndex = Math.floor(Math.random() * cmComments.length);
+  const comment = createComment("Cookie Monster", cmComments[randIndex]);
+
   const saveSuccessful = saveComment(comment);
   res.json({ success: saveSuccessful });
 });
