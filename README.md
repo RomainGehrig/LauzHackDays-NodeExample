@@ -1,10 +1,17 @@
-# An example server in written in Node
-Install by cloning the repo and then `npm install` to install the dependencies (only NodeJS for the moment)
+# Prerequisites
+- [ ] A GitHub account
+- [ ] A Git client
+- [ ] A terminal and [`node/npm`](https://www.npmjs.com/get-npm) installed
 
-Run the code with `npm start`
+# An example server in written in Node
+Start by forking the repo to your own account. This way you can make changes to your own copy.
+
+Then clone your _own_ repo locally with `git clone git@github.com:YourGithubAccount/WhereIsTheFood`. Go into the directory with `cd WhereIsTheFood` and install the dependencies with `npm install` (only NodeJS for the moment).
+
+You can now run the server with the command `npm start`. To stop the server, press `CTRL+C`.
 
 # Simple exercises:
-## Backend:
+## API:
 - [ ] Save the user/text sent by the frontend in the POST body, look for the TODO in `api.js`
 - [ ] Only return the last 10 comments in the API
 - [ ] Return a count of the total number of comments
@@ -14,11 +21,15 @@ Run the code with `npm start`
 - [ ] Display the total number of comments
 - [ ] Let the user set a name when posting a comment
 
+## Backend setup:
+- [ ] Add a favicon
+- [ ] Install [`nodemon`](https://github.com/remy/nodemon#nodemon) as a development dependency and use it to run your server. It should reload the server when it sees a changes in one of the Javascript (backend) files.
+
 # More involved exercises
 To implement one of theses exercises may take you less than an hour if you are familiar with it and more if you aren't. They are good exercises for hackathon projects!
 
+- Save the comments in a database
 - Add a Javascript frontend framework like VueJS / React / ...
-- Save comments in a database
 - Create an account system so the user can login an post with their name
 - Use TypeScript for the backend. Or go even further away and rewrite the backend in a different language/environment, like Scala, Go, Haskell,...
 
