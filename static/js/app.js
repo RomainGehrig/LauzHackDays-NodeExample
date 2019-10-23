@@ -5,12 +5,17 @@ function createElementForComment(commentJson) {
   container.setAttribute("class", "clearfix shadow bg-light mb-2 p-2 rounded");
   const text = document.createElement("p");
   text.setAttribute("class", "float-left m-0");
-  text.innerHTML = commentJson["text"];
+  // document.createTextNode escapes HTML tags to protect from XSS
+  text.appendChild(document.createTextNode(commentJson["text"]));
+
   const name = document.createElement("span");
   name.setAttribute("class", "float-right font-weight-bold");
-  name.innerHTML = `${commentJson["user"]} (${timestampToString(
-    commentJson["time"]
-  )})`;
+  name.appendChild(
+    document.createTextNode(
+      `${commentJson["user"]} (${timestampToString(commentJson["time"])})`
+    )
+  );
+
   container.appendChild(text);
   container.appendChild(name);
   return container;
