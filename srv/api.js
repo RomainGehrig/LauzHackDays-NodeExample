@@ -6,7 +6,7 @@ const api = express.Router();
 api.use(express.json());
 api.use(express.urlencoded({ extended: true }));
 
-const DATA_DIR = path.join(__dirname, "_data");
+const DATA_DIR = path.join(__dirname, "..", "_data");
 const COMMENTS_FILE = path.join(DATA_DIR, "comments.json");
 
 // comments.json is a list of `comment`, which is defined by the object { text: string, user: string, time: timestamp }
@@ -43,6 +43,7 @@ api.post("/comments", (req, res) => {
   // Look at what is parsed in the request body by uncommenting the next line:
   // console.log(req.body);
   const comment = createComment("Anon", "Hello");
+  console.log("Got a new comment: ", comment);
   const saveSuccessful = saveComment(comment);
   res.json({ success: saveSuccessful });
 });

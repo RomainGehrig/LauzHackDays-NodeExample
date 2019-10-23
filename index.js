@@ -1,7 +1,7 @@
 const http = require("http");
 const path = require("path");
 const express = require("express");
-const api = require("./api");
+const api = require("./srv/api");
 
 const app = express();
 app.use("/static", express.static(path.join(__dirname, "static")));
